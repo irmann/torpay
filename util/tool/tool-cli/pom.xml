@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<parent>
+		<groupId>torpay</groupId>
+		<artifactId>torpay-parent</artifactId>
+		<version>0.1.0-SNAPSHOT</version>
+		<relativePath>/../../parent/pom.xml</relativePath>
+	</parent>
+	<modelVersion>4.0.0</modelVersion>
+	<artifactId>torpay-cli</artifactId>
+	<packaging>jar</packaging>
+	<version>${torpay-cli.version}</version>
+	<name>cli</name>
+
+	<properties>
+		<cli-api.version>1.0</cli-api.version>
+	</properties>
+
+	<dependencies>
+		<!-- TorPay -->
+		<dependency>
+			<groupId>torpay</groupId>
+			<artifactId>torpay-security</artifactId>
+			<version>${torpay-security.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>torpay</groupId>
+			<artifactId>torpay-management</artifactId>
+			<version>${torpay-management.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>net.dharwin.common.tools.cli</groupId>
+			<artifactId>cli-api</artifactId>
+			<version>${cli-api.version}</version>
+		</dependency>
+
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-shade-plugin</artifactId>
+				<version>2.1</version>
+				<executions>
+					<execution>
+						<phase>package</phase>
+						<goals>
+							<goal>shade</goal>
+						</goals>
+						<configuration>
+							<transformers>
+								<transformer
+									implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+									<mainClass>net.dharwin.common.tools.cli.api.EntryPoint</mainClass>
+								</transformer>
+							</transformers>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+
+</project>

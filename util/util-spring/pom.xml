@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<parent>
+		<groupId>torpay</groupId>
+		<artifactId>torpay-parent</artifactId>
+		<version>0.1.0-SNAPSHOT</version>
+		<relativePath>/../../parent/pom.xml</relativePath>
+	</parent>
+	<modelVersion>4.0.0</modelVersion>
+	<artifactId>torpay-util-spring</artifactId>
+	<packaging>jar</packaging>
+	<version>${torpay-util-spring.version}</version>
+	<name>util-spring</name>
+
+	<properties>
+
+	</properties>
+
+	<dependencies>
+		<!-- TorPay -->
+		<dependency>
+			<groupId>torpay</groupId>
+			<artifactId>torpay-configuration</artifactId>
+			<version>${torpay-configuration.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>torpay</groupId>
+			<artifactId>torpay-management</artifactId>
+			<version>${torpay-management.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>commons-io</groupId>
+			<artifactId>commons-io</artifactId>
+			<version>${commons-io.version}</version>
+		</dependency>
+
+	</dependencies>
+</project>

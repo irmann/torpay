@@ -1,0 +1,29 @@
+{  "provider":"torpay-test-2",
+   "actions": [{
+                    "name":"AuthorizeNetAIM",
+                    "is-mapped":"true",
+                    "map-to-provider":"AuthorizeNet",
+                    "map-to-action":"AuthorizeNetAIM",
+                    "map-custom-class":"org.torpay.service.core.action.mapping.TorPayToAuthorizeNetAIM",
+                    "channel":{"name":"AuthorizeNet","provider":"AuthorizeNet","action":"AuthorizeNetAIM",
+                                   "content-parameters":[
+									                       {"name":"amount","map-to":"amount"},
+									                       {"name":"card_num","map-to":"card_num"},
+									                       {"name":"exp_date","map-to":"exp_date"}
+									                    ]
+                    },
+                    "content-parameters":[
+                       {"name":"amount","type":"float","map-to":"amount"},
+                       {"name":"card_num","type":"long","map-to":"card_num"},
+                       {"name":"exp_date","type":"int","map-to":"exp_date"}
+                    ],
+                    "parent":{"provider":"torpay-test-2","action":"AuthorizeNetParent"},
+                    "url-parameters":[
+                    ]
+               },
+               {
+                    "name":"AuthorizeNetParent",
+                    "action-hanlder-class":"org.torpay.service.core.action.ProviderAction",
+               }     
+              ]
+}

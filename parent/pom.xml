@@ -1,0 +1,189 @@
+<project>
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>torpay</groupId>
+	<artifactId>torpay-parent</artifactId>
+	<version>0.1.0-SNAPSHOT</version>
+	<name>torpay</name>
+	<packaging>pom</packaging>
+
+	<properties>
+		<torpay-instance-name></torpay-instance-name>
+		<torpay.version>0.1.0-SNAPSHOT${torpay-instance-name}</torpay.version>
+		<!-- TorPay properties -->
+		<torpay-parent.version>0.1.0-SNAPSHOT</torpay-parent.version>
+
+
+
+		<torpay-common.version>${torpay.version}</torpay-common.version>
+		<torpay-configuration.version>${torpay.version}</torpay-configuration.version>
+		<torpay-persistence.version>${torpay.version}</torpay-persistence.version>
+		<torpay-util-spring.version>${torpay.version}</torpay-util-spring.version>
+		<torpay-util-spring-parent.version>${torpay.version}</torpay-util-spring-parent.version>
+		<torpay-management.version>${torpay.version}</torpay-management.version>
+		<torpay-security.version>${torpay.version}</torpay-security.version>
+		<torpay-cli.version>${torpay.version}</torpay-cli.version>
+		<torpay-notification.version>${torpay.version}</torpay-notification.version>
+
+		<torpay-engine-metadata.version>${torpay.version}</torpay-engine-metadata.version>
+		<torpay-engine-validation.version>${torpay.version}</torpay-engine-validation.version>
+		<torpay-engine-content.version>${torpay.version}</torpay-engine-content.version>
+		<torpay-engine-workflow.version>${torpay.version}</torpay-engine-workflow.version>
+		<torpay-engine-core.version>${torpay.version}</torpay-engine-core.version>
+
+		<torpay.service-proxy.version>${torpay.version}</torpay.service-proxy.version>
+		<torpay-service-core-activity-controller.version>${torpay.version}</torpay-service-core-activity-controller.version>
+		<torpay.service-core-action.version>${torpay.version}</torpay.service-core-action.version>
+		<torpay.service-core-activity.version>${torpay.version}</torpay.service-core-activity.version>
+		<torpay-service-core.version>${torpay.version}</torpay-service-core.version>
+
+
+		<torpay-entrance-convertor.version>${torpay.version}</torpay-entrance-convertor.version>
+		<torpay-entrance-core.version>${torpay.version}</torpay-entrance-core.version>
+		<torpay-entrance-web.version>${torpay.version}</torpay-entrance-web.version>
+
+		<!-- Generic properties -->
+		<java.version>1.6</java.version>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<!-- JSON -->
+		<json-simple.version>1.1</json-simple.version>
+		<!-- Test -->
+		<junit.version>4.11</junit.version>
+		<!-- Logging -->
+		<logback.version>1.0.13</logback.version>
+		<!-- Spring -->
+		<spring.version>3.2.3.RELEASE</spring.version>
+		<!-- Apache Commons -->
+		<commons-io.version>2.4</commons-io.version>
+	</properties>
+
+	<dependencies>
+	</dependencies>
+	<modules>
+		<module>../util/common</module>
+
+		<module>../service/configuration</module>
+		<module>../outlet/persistence</module>
+		<module>../util/util-spring</module>
+		<module>../util/util-spring-parent</module>
+		<module>../outlet/notification</module>
+
+		<module>../service/management</module>
+		<module>../util/tool/tool-cli</module>
+
+		<module>../service/engine/engine-metadata</module>
+		<module>../service/engine/engine-content</module>
+		<module>../service/engine/engine-validation</module>
+		<module>../service/engine/engine-workflow</module>
+		<module>../service/engine/engine-core</module>
+		
+
+		<module>../service/service-proxy</module>
+		<module>../service/core-action</module>
+		<module>../service/core-activity/activity-controller</module>
+		<module>../service/core-activity/activity</module>
+		<module>../service/service-core</module>
+
+		<module>../entrance/entrance-convertor</module>
+		<module>../entrance/entrance-core</module>
+		<module>../entrance/entrance-web</module>
+
+
+	</modules>
+	<!-- Maven plugin versions are mentioned in order to guarantee the build 
+		reproducibility in the long term -->
+	<build>
+		<defaultGoal>install</defaultGoal>
+		<testResources>
+			<testResource>
+				<!-- declared explicitly so Spring config files can be placed next to 
+					their corresponding JUnit test class (see example with ValidatorTests) -->
+				<directory>${project.basedir}/src/test/java</directory>
+			</testResource>
+			<testResource>
+				<directory>${project.basedir}/src/test/resources</directory>
+			</testResource>
+		</testResources>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.0</version>
+				<configuration>
+					<compilerArguments>
+						<Xlint />
+					</compilerArguments>
+					<verbose>true</verbose>
+					<source>${java.version}</source>
+					<target>${java.version}</target>
+					<showWarnings>true</showWarnings>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>2.13</version>
+				<configuration>
+					<includes>
+						<include>**/*Tests.java</include>
+					</includes>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-war-plugin</artifactId>
+				<version>2.3</version>
+				<configuration>
+					<warName>petclinic</warName>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-eclipse-plugin</artifactId>
+				<version>2.9</version>
+				<configuration>
+					<downloadSources>true</downloadSources>
+					<downloadJavadocs>true</downloadJavadocs>
+					<wtpversion>2.0</wtpversion>
+					<sourceIncludes>
+						<sourceInclude>**/*.*</sourceInclude>
+					</sourceIncludes>
+					<additionalBuildcommands>
+						<buildCommand>
+							<name>org.springframework.ide.eclipse.core.springbuilder</name>
+						</buildCommand>
+						<buildCommand>
+							<name>org.eclipse.m2e.core.maven2Builder</name>
+						</buildCommand>
+					</additionalBuildcommands>
+					<additionalProjectnatures>
+						<projectnature>org.eclipse.jdt.core.javanature</projectnature>
+						<projectnature>org.springframework.ide.eclipse.core.springnature</projectnature>
+						<projectnature>org.eclipse.m2e.core.maven2Nature</projectnature>
+					</additionalProjectnatures>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-assembly-plugin</artifactId>
+				<version>2.4</version>
+				<configuration>
+					<descriptorRefs>
+						<descriptorRef>jar-with-dependencies</descriptorRef>
+					</descriptorRefs>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.tomcat.maven</groupId>
+				<artifactId>tomcat7-maven-plugin</artifactId>
+				<version>2.0</version>
+				<configuration>
+					<server>tomcat-development-server</server>
+					<port>9966</port>
+					<path>/torpay</path>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+</project> 

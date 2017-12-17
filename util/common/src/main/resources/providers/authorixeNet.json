@@ -1,0 +1,22 @@
+{  "provider":"AuthorizeNet",
+   "login-id":"TORPAY001",
+   "password":"84164Si1lf615KQ",
+   "custom-data":[{ "name":"login-id","value":"TORPAY001","type":"post-parameter"},
+			   { "name":"login-id","value":"TORPAY001","type":""},
+			   { "name":"password","value":"84164Si1lf615KQ","type":""},
+			   { "name":"api-login-id","value":"339e9KLksZD","type":"post-parameter"},
+			   { "name":"transaction-key","value":"7QL96tw4k697DVG6","type":"post-parameter"},
+			   { "name":"secret-question","value":"Simon","type":""},
+			   { "name":"md5-setting","ref":"secret-question","type":""},
+			   { "name":"merchant-login","value":"https://test.authorize.net/","type":""}
+    ],
+   "actions": [{
+                    "name":"AuthorizeNetAIM",
+                    "content-parameters":[
+                       {"name":"amount","type":"int"},
+                       {"name":"card_num","type":"int"},
+                       {"name":"exp_date","type":"int"}
+                    ]
+               }     
+              ]
+}

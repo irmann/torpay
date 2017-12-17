@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Workfolow engine and activities -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:context="http://www.springframework.org/schema/context" xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:jpa="http://www.springframework.org/schema/data/jpa"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/data/jpa http://www.springframework.org/schema/data/jpa/spring-jpa.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+	<bean id="engine" class="org.torpay.engine.Engine" />
+	<bean id="metaDataService" class="org.torpay.engine.metadata.JsonMetaDataService">
+
+	</bean>
+	<bean id="configurationService"
+		class="org.torpay.engine.configuration.HardCodeConfigurationService" />
+
+	<bean id="errorHandler" class="org.torpay.engine.workflow.GeneralErrorHandler" />
+	<bean id="defaultErrorHandler" class="org.torpay.engine.workflow.GeneralErrorHandler" />
+	<bean id="workflowContext" class="org.torpay.engine.workflow.WorkflowContext" />
+
+	<bean id="workflowEngine" class="org.torpay.engine.workflow.WorkflowProcessor">
+		<property name="activities">
+			<list>
+				<ref bean="init" />
+				<ref bean="validatePaymentRequest" />
+				<ref bean="extractProviderId" />
+				<ref bean="extractAction" />
+				<ref bean="lookupMetaData" />
+				<ref bean="loadPaymentParameters" />
+				<ref bean="validatePaymentParameters" />
+				
+
+			</list>
+		</property>
+		<property name="defaultErrorHandler">
+			<ref bean="defaultErrorHandler"></ref>
+		</property>
+		<property name="processContextClass">
+			<ref bean="workflowContext"></ref>
+
+		</property>
+	</bean>
+
+	<bean id="init" class="org.torpay.engine.workflow.activity.Init" />
+	<bean id="validatePaymentRequest"
+		class="org.torpay.engine.workflow.activity.ValidatePaymentRequest" />
+	<bean id="extractProviderId" class="org.torpay.engine.workflow.activity.ExtractProviderId" />
+	<bean id="extractAction" class="org.torpay.engine.workflow.activity.ExtractAction" />
+	<bean id="lookupMetaData" class="org.torpay.engine.workflow.activity.LookupMetaData" />
+	<bean id="validatePaymentParameters"
+		class="org.torpay.engine.workflow.activity.ValidatePaymentParameters" />
+	<bean id="loadPaymentParameters"
+		class="org.torpay.engine.workflow.activity.LoadPaymentParameters" />
+
+
+
+</beans>

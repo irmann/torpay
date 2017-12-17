@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<parent>
+		<groupId>torpay</groupId>
+		<artifactId>torpay-parent</artifactId>
+		<version>0.1.0-SNAPSHOT</version>
+		<relativePath>/../../parent/pom.xml</relativePath>
+	</parent>
+
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>torpay</groupId>
+	<artifactId>torpay-entrance-core</artifactId>
+	<packaging>jar</packaging>
+	<version>${torpay-entrance-core.version}</version>
+	<name>entrance-core</name>
+
+	<properties>
+		<spring.version>3.2.3.RELEASE</spring.version>
+		<junit.version>4.11</junit.version>
+		<mockito-all.version>1.9.5</mockito-all.version>
+	</properties>
+
+	<dependencies>
+
+		<dependency>
+			<groupId>torpay</groupId>
+			<artifactId>torpay-entrance-convertor</artifactId>
+			<version>${torpay-entrance-convertor.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>torpay</groupId>
+			<artifactId>torpay-util-parent</artifactId>
+			<version>${torpay-util-parent.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>torpay</groupId>
+			<artifactId>torpay-service-core</artifactId>
+			<version>${torpay-service-core.version}</version>
+		</dependency>
+
+		<!-- Test Artifacts -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-test</artifactId>
+			<version>${spring.version}</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>${junit.version}</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.mockito</groupId>
+			<artifactId>mockito-all</artifactId>
+			<version>${mockito-all.version}</version>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
+
+
+	<build>
+
+	</build>
+
+
+</project>

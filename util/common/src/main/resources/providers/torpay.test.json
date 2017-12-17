@@ -1,0 +1,76 @@
+{  "provider":"torpay.test",
+   "actions": [{
+                    "name":"test",
+                    "url-parameters":[
+                    ],
+                    "content-parameters":[
+                      {"name":"param0","required":"false", "type":"number", "length":"10"},
+                      {"name":"param00","required":"false", "type":"number", "length":"10",},
+                      {"name":"param000","required":"false", "type":"number", "length":"10"},
+                      {"name":"param1","required":"true", "type":"number", "length":"10"},
+                      {"name":"param2","required":"true", "type":"number", "length":"10"},
+                      {"name":"param3","required":"true", "type":"float", "length":"10"},
+                      {"name":"param4","required":"true", "type":"string", "length":"10"},
+                      {"name":"param5","required":"true", "type":"number", "length":"10"},
+                      {"name":"param6","required":"true", "type":"number", "max-length":"7"},
+                      {"name":"param7","required":"true", "type":"number", "min-length":"3"},
+                      {"name":"param8","required":"true", "type":"number", "length":"10","custom":[{"class":"org.torpay.service.core.activity.validation.TestCustomValidator"}]},
+                      
+                     
+                    ],
+                    "parent":{"provider":"torpay","action":"test.parent"},
+                    "checks":[
+                    
+                    ]
+               },
+               {
+                    "name":"test2",
+                    "url-parameters":[
+                    ],
+                    "content-parameters":[
+                      {"name":"name1","required":"true", "type":"string"},
+                      {"name":"name2","required":"true", "type":"string"},
+                      {"name":"name3","required":"true", "type":"string"},
+                      {"name":"name4.name5","required":"true", "type":"string", "array":"true"},
+                      {"name":"name4.name7","required":"true", "type":"string", },
+                      {"name":"name8.name9","required":"true", "type":"string", },
+                      {"name":"name8.name10.name11","required":"true", "type":"string"},
+                      {"name":"name8.name10.name12","required":"true", "type":"string"},
+                      {"name":"name13.name30.name14","required":"true", "type":"string"},
+                      {"name":"name13.name31.name15.name16","required":"true", "type":"string"},
+                      {"name":"name1","required":"true", "type":"string"},
+                      {"name":"name1","required":"true", "type":"string"},
+                      {"name":"name1","required":"true", "type":"string"},
+                      {"name":"name18.name19.name32.name20","required":"yes", "true":"string"},
+                      {"name":"name18.name19.name33.name22.name23","required":"true", "type":"string"}
+                    ],
+                    
+                    "checks":[
+                    
+                    ]
+               },
+               {
+                    "name":"test.parent",
+                    "content-parameters":[
+                      {"name":"param99","required":"yes", "type":"number", "length":"10","custom":[{"name":"custom1"}]}
+                    ],
+                    "checks":[
+                    
+                    ]
+               },
+               {
+                    "name":"AuthorizeNetAIM",
+                    "content-parameters":[
+                       {"name":"amount","type":"float"},
+                       {"name":"card_num","type":"long"},
+                       {"name":"exp_date","type":"int"}
+                    ]
+                    "url-parameters":[
+                    ]
+               },
+               {
+                    "name":"AuthorizeNetParent",
+                    "action-hanlder-class":"org.torpay.service.core.action.ProviderAction",
+               }     
+              ]
+}

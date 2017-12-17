@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<parent>
+		<groupId>torpay</groupId>
+		<artifactId>torpay-parent</artifactId>
+		<version>0.1.0-SNAPSHOT</version>
+		<relativePath>/../../../parent/pom.xml</relativePath>
+	</parent>
+
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>torpay</groupId>
+	<artifactId>torpay-engine-validation</artifactId>
+	<packaging>jar</packaging>
+	<version>${torpay-engine-validation.version}</version>
+	<name>engine-validation</name>
+
+	<properties>
+		<commons-lang.version>2.3</commons-lang.version>
+		<spring.version>3.2.3.RELEASE</spring.version>
+	</properties>
+
+	<dependencies>
+		<!-- TorPay -->
+		<dependency>
+			<groupId>torpay</groupId>
+			<artifactId>torpay-common</artifactId>
+			<version>${torpay-common.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>torpay</groupId>
+			<artifactId>torpay-engine-metadata</artifactId>
+			<version>${torpay-engine-metadata.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>torpay</groupId>
+			<artifactId>torpay-engine-content</artifactId>
+			<version>${torpay-engine-content.version}</version>
+		</dependency>
+		<!-- Spring -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-beans</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>commons-lang</groupId>
+			<artifactId>commons-lang</artifactId>
+			<version>${commons-lang.version}</version>
+		</dependency>
+
+	</dependencies>
+
+
+</project>
